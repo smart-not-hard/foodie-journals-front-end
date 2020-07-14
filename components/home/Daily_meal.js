@@ -6,7 +6,7 @@ const Daily_meal = () => (
             </div>
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-3">
                 <div class="meal-card card mx-auto">
-                    <img class="card-img-top" src="https://www.carlsbadfoodtours.com/wp-content/uploads/2015/12/09112015_15minute_pastasauce_tomato.v1-1200x800.jpg" alt="breakfast"/>
+                    <img class="meal-img card-img-top d-block mx-auto m-2" src="https://www.carlsbadfoodtours.com/wp-content/uploads/2015/12/09112015_15minute_pastasauce_tomato.v1-1200x800.jpg" alt="breakfast"/>
                     <div class="card-body">
                         <h5 class="card-title">Breakfast</h5>
                         <p class="card-text">Breakfast of the choice.</p>
