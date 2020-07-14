@@ -28,7 +28,7 @@ const Navbar = () => (
             </form>
             <ul className="navbar-nav ml-auto large mb-2 mb-md-0">
                 <li className="nav-item active">
-                    <a className="nav-link py-2 ml-3 mt-3" href="#">About</a>
+                    <a className="nav-link py-2 ml-3 mt-3" href="/about">About</a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link py-2 ml-3 mt-3" href="#">Receipes</a>
