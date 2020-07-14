@@ -1,12 +1,12 @@
 import Layout from '../components/layout/Layout';
-import Carousel from '../components/home/Carousel';
-import Daily_meal from '../components/home/Daily_meal';
+import Intro from '../components/about/Intro';
+// import Daily_meal from '../components/home/Daily_meal';
 
 
-const Home = () => (
+const About = () => (
     <Layout>
-        <Carousel/>
-        <Daily_meal/>
+        <Intro/>
+        {/* <Daily_meal/> */}
     </Layout>
 
 )
@@ -24,5 +24,4 @@ const Home = () => (
 //     }
 // }
 
-export default Home;
-
+export default About;

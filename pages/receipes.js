@@ -1,12 +1,12 @@
 import Layout from '../components/layout/Layout';
-import Carousel from '../components/home/Carousel';
-import Daily_meal from '../components/home/Daily_meal';
+import Filter from '../components/receipes/Filter';
 
 
-const Home = () => (
+
+const Receipes = () => (
     <Layout>
-        <Carousel/>
-        <Daily_meal/>
+        <Filter/>
+        {/* <Daily_meal/> */}
     </Layout>
 
 )
@@ -24,5 +24,4 @@ const Home = () => (
 //     }
 // }
 
-export default Home;
-
+export default Receipes;
