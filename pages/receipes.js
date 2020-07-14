@@ -2,7 +2,6 @@ import Layout from '../components/layout/Layout';
 import Filter from '../components/receipes/Filter';
 
 
-
 const Receipes = () => (
     <Layout>
         <Filter/>
