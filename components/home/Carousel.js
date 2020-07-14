@@ -1,6 +1,6 @@
 
 const Carousel = () => (
-    <div className="container mb-3 p-0">
+    <div className="container p-0">
         <div id="carouselControls" className="carousel slide " data-ride="carousel">
             <div className="carousel-inner ">
                 <div className="carousel-container">

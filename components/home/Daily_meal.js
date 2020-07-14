@@ -1,7 +1,7 @@
 const Daily_meal = () => (
     <div class="container mb-3" id="meal-card">
         <div class="row justify-content-start">
-            <div class="col-12 text-center mb-3">
+            <div class="col-12 text-center mb-5">
                 <h2>Our meal choice of the day</h2>
             </div>
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-3">
