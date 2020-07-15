@@ -26,7 +26,7 @@ const Navbar = () => (
           <a className="nav-link py-2 ml-3 mt-3" href="/about">About</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link py-2 ml-3 mt-3" href="/receipes">Receipes</a>
+          <a className="nav-link py-2 ml-3 mt-3" href="/recipes">Recipes</a>
         </li>
         <li className="nav-item">
           <a className="nav-link py-2 ml-3 mt-3" href="#modalLoginForm" data-toggle="modal">Login</a>
@@ -65,7 +65,6 @@ const Navbar = () => (
                   {/* <!-- Remember me --> */}
                   <div className="custom-control custom-checkbox">
                     <input type="checkbox" className="custom-control-input" id="defaultLoginFormRemember"/>
-                    <label className="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
                   </div>
                 </div>
                 <div>

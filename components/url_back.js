@@ -1,0 +1,1 @@
+module.exports = "https://foodie-journal.herokuapp.com/api/recipes/"
