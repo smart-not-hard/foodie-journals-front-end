@@ -1,28 +1,58 @@
-## Getting Started
+# Team Smart not Hard : PGC
 
-First, run the development server:
+## Members
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Peng Chen](https://github.com/PengChen11)
+- [Corey Marchand](https://github.com/corey-marchand)
+- [H Griffin](https://github.com/h-griffin)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## [Deployed Backend - Heroku](https://foodie-journal.herokuapp.com/)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## [Deployed Front-end - Vercel](https://foodie-journals-front-end.vercel.app)
 
-## Learn More
+## [GitHub Repo](https://github.com/smart-not-hard/foodie-journal)
 
-To learn more about Next.js, take a look at the following resources:
+## [GitHub Project Board](https://github.com/smart-not-hard/foodie-journal/projects/1)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project description
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Foodie Journal
 
-## Deploy on Vercel
+a place to find and save recipes, to custom user accounts, saving to a database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### whiteboard
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![whiteboard 1](assets/WB1.png)
+
+## Entity Relationship Diagram
+
+![ERD 1](assets/ERD1.png)
+
+## User Stories
+
+view github project board for user stories
+
+## Tools
+
+### Front End:
+
+React.js
+Next.js
+bootstrap
+sass
+
+### Back End:
+
+Python
+Django
+Docker
+PostgreSQL
+SQLite
+ElephantSQL
+heroku/aws/Azure
+
+## [click to see step by step set up/creation](progress.md)
+
+## Links and Resources
+
+- [vercel CDN](https://vercel.com/edge-network)
