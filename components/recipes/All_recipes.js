@@ -1,6 +1,8 @@
+import Link from 'next/link';
+
 const All_recipes = (props) => {
   
-  let url = '/recipes/';
+  let url = '/details/';
   let cards = [];
   for (let i = 0; i<props.data.length; i++){
     cards.push(

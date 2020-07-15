@@ -76,11 +76,6 @@ const Navbar = () => (
               {/* <!-- Sign in button --> */}
               <button className="btn btn-info btn-block my-4" type="submit">Sign in</button>
 
-              {/* <!-- Register --> */}
-              <p>Not a member?
-                <a href="#modalLoginForm" data-toggle="modal"><a href="#modalRegisterForm" data-toggle="modal">Register</a></a>
-              </p>
-
             </form>
             {/* Default form login */}
 
