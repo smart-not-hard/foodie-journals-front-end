@@ -1,5 +1,8 @@
+import Link from 'next/link';
+
 const Daily_meal = (props) => {
-  let url="http://localhost:3000/receipes/"
+  let url = '/details/';
+
   return(
     <div className="container mb-3" id="meal-card">
         <div className="row justify-content-start">
@@ -13,7 +16,9 @@ const Daily_meal = (props) => {
                         {/* <h5 className="card-title">{props.data.breakfast[0].title}</h5> */}
                         <h5 className="card-title">{props.data.breakfast[0].title}</h5>
                         <p className="card-text">Breakfast of the choice.</p>
-                        <a href={url+props.data.breakfast[0].id} className="btn btn-primary">Learn to cook it</a>
+                        <Link href="/details/[id]" as={`${url}${props.data.breakfast[0].id}`}>
+                          <a className="btn btn-primary">Learn to cook it</a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -23,7 +28,9 @@ const Daily_meal = (props) => {
                     <div className="card-body">
                         <h5 className="card-title">{props.data.lunch[0].title}</h5>
                         <p className="card-text">Lunch of the choice.</p>
-                        <a href={url+ props.data.lunch[0].id} className="btn btn-primary">Learn to cook it</a>
+                        <Link href="/details/[id]" as={`${url}${props.data.lunch[0].id}`}>
+                          <a className="btn btn-primary">Learn to cook it</a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -33,7 +40,9 @@ const Daily_meal = (props) => {
                     <div className="card-body">
                         <h5 className="card-title">{props.data.dinner[0].title}</h5>
                         <p className="card-text">Dinner of the choice</p>
-                        <a href={url+props.data.dinner[0].id} className="btn btn-primary">Learn to cook it</a>
+                        <Link href="/details/[id]" as={`${url}${props.data.dinner[0].id}`}>
+                          <a className="btn btn-primary">Learn to cook it</a>
+                        </Link>
                     </div>
                 </div>
             </div>

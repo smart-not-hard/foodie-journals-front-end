@@ -13,8 +13,7 @@ const Home = (props) => (
 
 export async function getServerSideProps (context){
 
-  const url = 'https://foodie-journals.herokuapp.com/api/receipes/';
-  // const url = 'http://127.0.0.1:8000/api/receipes';
+  const url = require("../components/url_back");
   const url_breakfast = url + "breakfast";
   const response_breakfast = await fetch(url_breakfast);
   const data_breakfast = await response_breakfast.json();

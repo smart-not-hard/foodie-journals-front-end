@@ -1,5 +1,8 @@
 
-const Carousel = () => (
+const Carousel = () => {
+  let url = 'https://foodie-journals.herokuapp.com/api/receipes/';
+  
+  return (
     <div className="container p-0">
         <div id="carouselControls" className="carousel slide " data-ride="carousel">
             <div className="carousel-inner ">
@@ -27,6 +30,6 @@ const Carousel = () => (
         </div>
     </div>
 
-)
+)}
 
 export default Carousel;
