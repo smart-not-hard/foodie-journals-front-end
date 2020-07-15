@@ -38,7 +38,7 @@ const Navbar = () => (
     </div> {/* collapse navbar-collapse */}
     
     {/* This is the Login module */}
-    <div className="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div className="modal fade" id="modalLoginForm" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header text-center">
@@ -92,7 +92,7 @@ const Navbar = () => (
 
 
     {/* This is the Register module */}
-    <div className="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div className="modal fade" id="modalRegisterForm" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header text-center">
@@ -103,32 +103,32 @@ const Navbar = () => (
           </div>
           <div className="modal-body mx-3">
             {/* <!-- Default form register --> */}
-            <form class="text-center border border-light p-5" action="#!">
+            <form className="text-center border border-light p-5" action="#!">
 
-            <p class="h4 mb-4">Sign up</p>
+            <p className="h4 mb-4">Sign up</p>
 
-            <div class="form-row mb-4">
-              <div class="col">
+            <div className="form-row mb-4">
+              <div className="col">
                 {/* <!-- First name --> */}
-                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name"/>
+                <input type="text" id="defaultRegisterFormFirstName" className="form-control" placeholder="First name"/>
               </div>
-              <div class="col">
+              <div className="col">
                 {/* <!-- Last name --> */}
-                <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name"/>
+                <input type="text" id="defaultRegisterFormLastName" className="form-control" placeholder="Last name"/>
               </div>
             </div>
 
             {/* <!-- E-mail --> */}
-            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"/>
+            <input type="email" id="defaultRegisterFormEmail" className="form-control mb-4" placeholder="E-mail"/>
 
             {/* <!-- Password --> */}
-            <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
-            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+            <input type="password" id="defaultRegisterFormPassword" className="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
+            <small id="defaultRegisterFormPasswordHelpBlock" className="form-text text-muted mb-4">
                 At least 8 characters and 1 digit
             </small>
 
             {/* <!-- Sign up button --> */}
-            <button class="btn btn-info my-4 btn-block" type="submit">Create</button>
+            <button className="btn btn-info my-4 btn-block" type="submit">Create</button>
             </form>
             {/* <!-- Default form register --></hr> */}
     
