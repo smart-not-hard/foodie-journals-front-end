@@ -16,7 +16,8 @@ const Receipes = (props) => {
 
 export async function getServerSideProps (context){
 
-    const url = 'http://127.0.0.1:8000/api/receipes';
+    // const url = 'http://127.0.0.1:8000/api/receipes';
+    const url = 'https://foodie-journals.herokuapp.com/api/receipes/';
     const response = await fetch(url);
     const data = await response.json();
 

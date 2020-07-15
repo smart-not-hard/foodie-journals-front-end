@@ -13,16 +13,17 @@ const Home = (props) => (
 
 export async function getServerSideProps (context){
 
-  // const url = 'https://foodie-journals.herokuapp.com/api/receipes/breakfast/';
-  const url_breakfast = "http://127.0.0.1:8000/api/receipes/breakfast";
+  const url = 'https://foodie-journals.herokuapp.com/api/receipes/';
+  // const url = 'http://127.0.0.1:8000/api/receipes';
+  const url_breakfast = url + "breakfast";
   const response_breakfast = await fetch(url_breakfast);
   const data_breakfast = await response_breakfast.json();
 
-  const url_lunch = "http://127.0.0.1:8000/api/receipes/lunch/"
+  const url_lunch = url + "lunch";
   const response_lunch = await fetch(url_lunch);
   const data_lunch = await response_lunch.json();
 
-  const url_dinner = "http://127.0.0.1:8000/api/receipes/dinner/"
+  const url_dinner = url + "dinner";
   const response_dinner = await fetch(url_dinner);
   const data_dinner = await response_dinner.json();
 
