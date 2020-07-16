@@ -1,11 +1,11 @@
 import Layout from '../../components/layout/Layout';
 import Filter from '../../components/recipes/Filter';
 import All_recipes from '../../components/recipes/All_recipes'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 const Search = (props) => {
 
-  const router = useRouter()
+  // const router = useRouter()
   if (JSON.stringify(props.data)!=='[]'){
     return (
       <Layout>
@@ -34,6 +34,7 @@ export async function getServerSideProps (context){
   const url = require("../../components/url_back");
   
   const response = await fetch(`${url}?search=${keyword}`);
+
   const data = await response.json();
   return {
     props: {
