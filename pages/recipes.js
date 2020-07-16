@@ -9,6 +9,9 @@ const Recipes = (props) => {
   return (
     <Layout>
         <Filter/>
+        <div className="container text-center mb-5">
+          <h2>All of our receipes</h2>
+        </div>
         <All_recipes data={props.data}/>
     </Layout>
 
