@@ -2,7 +2,7 @@ import RecipeForm from '../components/recipeForm/Form';
 import axios from 'axios';
 import React from 'react';
 import Layout from '../components/layout/Layout'
-const url = 'https://foodie-journal.herokuapp.com/api/recipes/';
+const url = 'https://foodie-journal.herokuapp.com/api/recipes/create';
 
 
 export default class Account extends React.Component {
