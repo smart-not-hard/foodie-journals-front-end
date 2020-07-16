@@ -28,6 +28,9 @@ const Navbar = () => (
           <a className="nav-link py-2 ml-3 mt-3" href="#modalLoginForm" data-toggle="modal">Login</a>
         </li>
         <li className="nav-item">
+          <a className="nav-link py-2 ml-3 mt-3" href="/account">My Account</a>
+        </li>
+        <li className="nav-item">
           <a className="nav-link py-2 ml-3 mt-3" href="#modalRegisterForm" data-toggle="modal">Create Account</a>
         </li>
       </ul>

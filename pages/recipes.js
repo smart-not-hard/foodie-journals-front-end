@@ -1,11 +1,9 @@
 import Layout from '../components/layout/Layout';
 import Filter from '../components/recipes/Filter';
-import All_recipes from '../components/recipes/All_recipes'
-
+import All_recipes from '../components/recipes/All_recipes';
 
 const Recipes = (props) => {
   // for (let i = 0; i<props.length; i++)
-  
   return (
     <Layout>
         <Filter/>
@@ -16,6 +14,9 @@ const Recipes = (props) => {
     </Layout>
 
 )}
+
+
+export default Recipes;
 
 export async function getServerSideProps (context){
 
@@ -29,5 +30,3 @@ export async function getServerSideProps (context){
     },
   }
 }
-
-export default Recipes;
