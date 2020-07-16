@@ -49,6 +49,7 @@ export default class Filter extends React.Component{
             <option value="Breakfast">Breakfast</option>
             <option value="Lunch">Lunch</option>
             <option value="Dinner">Dinner</option>
+            <option value="Dessert">Dessert</option>
           </select>
         </div>
         <div className="mr-5">
