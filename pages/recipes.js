@@ -1,8 +1,6 @@
 import Layout from '../components/layout/Layout';
 import Filter from '../components/recipes/Filter';
 import All_recipes from '../components/recipes/All_recipes';
-// import url_back from '../components/url_back';
-import RenderedFormRecipes from '../components/recipe-rendered/recipe-rendered'
 
 const Recipes = (props) => {
   // for (let i = 0; i<props.length; i++)
@@ -10,7 +8,6 @@ const Recipes = (props) => {
     <Layout>
         <Filter/>
         <All_recipes data={props.data}/>
-        <RenderedFormRecipes  />
     </Layout>
 
 )}

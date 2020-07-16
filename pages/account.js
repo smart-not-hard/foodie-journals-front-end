@@ -1,55 +1,28 @@
-import ToggleButton from '../components/toggleButton/Button';
 import RecipeForm from '../components/recipeForm/Form';
+import axios from 'axios';
+import React from 'react';
+import Layout from '../components/layout/Layout'
+const url = 'https://foodie-journal.herokuapp.com/api/recipes/';
 
-
-// <>
-//     <button className="b" type="submit">
-//     Post A Recipe
-//     </button>
-//     <button className="b" type="submit">
-//     Manage Recipes
-//     </button>
-// </>
 
 export default class Account extends React.Component {
-    constructor () {
-      super()
-      this.state = {
-        isHidden: true
-      }
-    }
-    toggleHidden () {
-      this.setState({
-        isHidden: !this.state.isHidden
-      })
-    }
-    render () {
+  constructor(props) {
+      super(props);
+      this.recipeCreateHandler = this.recipeCreateHandler.bind(this);
+  }
+
+
+  async recipeCreateHandler(recipe) {
+    console.log(recipe);
+    const response = await axios.post(url, recipe);
+    console.log(response.data)
+  }
+
+  render() {
       return (
-        <div>
-          <button onClick={this.toggleHidden.bind(this)} >
-            Click To Post Recipe
-          </button>
-          {!this.state.isHidden && <RecipeForm />}
-        </div>
+        <Layout>
+          <RecipeForm onRecipeCreate={this.recipeCreateHandler} />
+        </Layout>
       )
     }
 }
-
-export async function getServerSideProps (context){
-
-    const url = require("../components/url_back");
-    const response = await fetch(url);
-    const data = await response.json();
-  
-    return {
-      props: {
-        data : data,
-      },
-    }
-  }
-
-// const Child = () => (
-//   <div className='modal'>
-//         Hello, World!
-//     </div>
-// )

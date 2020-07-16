@@ -1,81 +1,48 @@
-// class Form extends React.Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {
-//           titleValue: '',
-//           descriptionValue: '',
-//           stepsValue: ''
-//         };
-//        this.handleChange = this.handleChange.bind(this);
-//       this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-//      handleChange(event) {
-//       this.setState({
-//             userValue: event.target.value,
-//             descriptionValue: event.target.value,
-//             stepsValue: event.target.value
-//         });
-//     }
-//      handleSubmit(event) {
-//       alert('Account Created');
-//       event.preventDefault();
-//     }
-//      render() {
-//       return (
-   
-//         <form onSubmit={this.handleSubmit}>
-//             <fieldset>
-//             <h2>Create an Account</h2>
-//                 <div class="form-group row">
-//                     <label for="exampleInputEmail1" >Email address: </label>
-//                     <input value={this.state.value} onChange={this.handleChange} type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-//                 </div>
-//                 <div class="form-group">
-//                     <label for="exampleInputUsername">Username: </label>
-//                     <input value={this.state.value} onChange={this.handleChange} type="username" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Enter username"/>
-//                 </div>
-//                 <div class="form-group">
-//                     <label for="exampleInputPassword1">Password</label>
-//                     <input value={this.state.value} onChange={this.handleChange} type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-//                 </div>
-//                 <button type="submit" class="btn btn-primary">Submit</button>
-//             </fieldset>
-//         </form>
-//       );
-//     }
-//  }
-  
- export default class PostForm extends React.Component {
+export default class PostForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          titleValue: '',
-          descriptionValue: '',
-          stepsValue: '',
+          title: '',
+          author: '',
+          description: '',
+          ingredients: '',
+          steps: '',
+          meal_type: '',
+          img_src_1: '',
+          img_src_2: '',
+          img_src_3: '',
+          difficulty: '',
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-     handleChange(event) {
-         const newName = event.target.value
-      this.setState({
-            titleValue: event.target.titleValue,
-            descriptionValue: event.target.descriptionValue,
-            stepsValue: event.target.stepsValue
-        });
+    handleChange(event) {
+        const newState = {
+            [event.target.name]: event.target.value
+        }
+
+        this.setState(newState);
     }
-     handleSubmit(event) {
-      alert('Recipe Submited');
+    handleSubmit(event) {
+    //   alert('Recipe Submited');
       event.preventDefault();
+      console.log('Submit', this.state);
       this.props.onRecipeCreate(this.state);
       this.setState({
-            titleValue: '',
-            descriptionValue: '',
-            stepsValue: '', 
+            title: '',
+            author: '',
+            description: '', 
+            ingredients: '',
+            steps: '',
+            meal_type: '',
+            img_src_1: '',
+            img_src_2: '',
+            img_src_3: '',
+            difficulty: '',
         });
     }
 
-     render() {
+    render() {
       return (
    
         <form onSubmit={this.handleSubmit}>
@@ -83,26 +50,42 @@
             <h2>Post A Recipe</h2>
                 <div className="form-group row">
                     <label for="exampleInputEmail1" >Title: </label>
-                    <input value={this.state.titleValue} onChange={this.handleChange} type="text" class="form-control"  placeholder="Enter Recipe"/>
+                    <input value={this.state.title} name="title" onChange={this.handleChange} type="text" class="form-control"  placeholder="Enter Recipe"/>
                 </div>
                 <div className="form-group">
-                    <label for="exampleInputUsername">Description: </label>
-                    <input value={this.state.descriptionValue} onChange={this.handleChange} type="text" class="form-control" placeholder="Description"/>
+                    <label for="exampleInputUsername">author: </label>
+                    <input value={this.state.author} name="author" onChange={this.handleChange} type="text" class="form-control" placeholder="author"/>
+                </div>
+                <div className="form-group">
+                    <label for="exampleTextarea">description: </label>
+                    <textarea value={this.state.description} name="description" onChange={this.handleChange} class="form-control" type="text" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <div className="form-group">
+                    <label for="exampleTextarea">ingredients: </label>
+                    <textarea value={this.state.ingredients} name="ingredients" onChange={this.handleChange} class="form-control" type="text" id="exampleTextarea" rows="3"></textarea>
                 </div>
                 <div className="form-group">
                     <label for="exampleTextarea">Steps: </label>
-                    <textarea value={this.state.stepsValue} class="form-control" type="text" id="exampleTextarea" rows="3"></textarea>
+                    <textarea value={this.state.steps} name="steps" onChange={this.handleChange} class="form-control" type="text" id="exampleTextarea" rows="3"></textarea>
                 </div>
-                {/* <div className="form-group">
-                    <label for="exampleInputFile">Pictures</label>
-                    <input type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp"/>
-                </div> */}
+                <div className="form-group">
+                    <label for="exampleTextarea">Meal type: </label>
+                    <textarea value={this.state.meal_type} name="meal_type" onChange={this.handleChange} class="form-control" type="text" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <div className="form-group">
+                    <label for="exampleTextarea">Image: </label>
+                    <textarea value={this.state.img_src_1} name="img_src_1" onChange={this.handleChange} class="form-control" type="text" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <div className="form-group">
+                    <label for="exampleTextarea">Difficulty: </label>
+                    <textarea value={this.state.difficulty} name="difficulty" onChange={this.handleChange} class="form-control" type="text" id="exampleTextarea" rows="3"></textarea>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </fieldset>
         </form>
       );
     }
- }
+}
   
   
  
