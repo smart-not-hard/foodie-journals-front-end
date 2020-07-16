@@ -1,4 +1,3 @@
-
 const All_recipes = (props) => {
   
   let url = '/details/';
@@ -21,6 +20,9 @@ const All_recipes = (props) => {
   return (
     <div className="container mb-3" id="all-meals">
       <div className="row justify-content-start">
+        <div className="col-12 text-center mb-5">
+          <h2>All of our receipes</h2>
+        </div>
         {cards}
       </div>
     </div>

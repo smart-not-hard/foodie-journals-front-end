@@ -13,11 +13,11 @@ const Navbar = () => (
     </button>
     <div className="collapse navbar-collapse w-50 flex-md-column " id="navbarCollapse">
 
-      <form className="form-inline ml-auto">
+      <form id="search-form" className="form-inline ml-auto" action="/search" method="post">
         <div className="input-group">
-          <input type="text" className="form-control border-dark" placeholder="Search"/>
+          <input type="text" className="form-control border-dark" placeholder="Search" id="search" name="search" />
           <div className="input-group-append">
-            <button className="btn btn-outline-secondary" type="button"><i className="fa fa-search"></i>Go</button>
+            <button className="btn btn-outline-secondary" onClick={e=>document.getElementById('search-form').action = '/search/'+document.getElementById('search').value}>Go</button>
           </div>
         </div>
       </form>
