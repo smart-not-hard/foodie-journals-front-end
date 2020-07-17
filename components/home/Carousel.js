@@ -9,7 +9,7 @@ const Carousel = (props) => {
       if (active_tracker===-1){
         if (props.data.all[i].img_src_2 !== ''){
           slides.push(
-            <div className="carousel-item active ">
+            <div key={props.data.all[i].id} className="carousel-item active ">
               <a href={url+props.data.all[i].id.toString()}>
                 <img className="carousel-img d-block img-thumbnail m-5 mx-auto" src={props.data.all[i].img_src_2} alt=" slide"/>
               </a>

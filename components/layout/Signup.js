@@ -33,12 +33,14 @@ class Signup extends React.Component {
         email: '',
         password: '',
       });
-    Router.push('/account');
     $('#modalRegisterForm').modal('toggle');
-    $("#my-account").toggleClass('d-none');
-    $("#login-tab").toggleClass('d-none');
-    $("#create-tab").toggleClass('d-none');
-    $("#logout-tab").toggleClass('d-none');
+    Router.push('/account');
+    setTimeout(()=>{
+      $("#my-account").toggleClass('d-none');
+      $("#login-tab").toggleClass('d-none');
+      $("#create-tab").toggleClass('d-none');
+      $("#logout-tab").toggleClass('d-none');
+    }, 1000)
     
   }
 

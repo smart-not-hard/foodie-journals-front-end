@@ -11,6 +11,12 @@ const post_url = url+'users/register/'
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      login: 0,
+      signup:0,
+      signout:0,
+      account:0,
+    }
     this.accountCreateHandler = this.accountCreateHandler.bind(this);
   }
 

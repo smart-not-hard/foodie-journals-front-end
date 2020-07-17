@@ -1,9 +1,9 @@
 //production
-module.exports = "https://foodie-journal.herokuapp.com/"
+// module.exports = "https://foodie-journal.herokuapp.com/"
 
 
 //test
-// module.exports = "http://127.0.0.1:8000/"
+module.exports = "http://127.0.0.1:8000/"
 
 
 // my backend
