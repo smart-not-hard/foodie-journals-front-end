@@ -4,9 +4,11 @@ import Signup from './Signup';
 import Search_form from './Search_form';
 import React from 'react';
 import axios from 'axios';
-
+import Router from 'next/router';
 const url = require("../url_back");
 const post_url = url+'users/register/'
+const login_url = url+'api/token/'
+const refresh_url = url+'api/token/refresh/'
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -18,13 +20,56 @@ class Navbar extends React.Component {
       account:0,
     }
     this.accountCreateHandler = this.accountCreateHandler.bind(this);
+    this.accountLoginHandler = this.accountLoginHandler.bind(this);
+    this.signOutHandler = this.signOutHandler.bind(this);
+  }
+
+  signOutHandler(e){
+    window.localStorage.clear();
   }
 
   async accountCreateHandler(account){
-    console.log(account);
+    // console.log(account);
     const response = await axios.post(post_url, account);
-    console.log(response.data)
+    // console.log(response.data)
   }
+
+  async accountLoginHandler(account){
+    try {
+      const response = await axios.post(login_url, account);
+      $('#modalLoginForm').modal('toggle');
+      
+      let accessToken = response.data.access;
+
+      const refreshRes = await axios.post(refresh_url, {refresh:response.data.refresh});
+      console.log('refreshed token', refreshRes.data)
+      accessToken = refreshRes.data.access;
+      
+      // const config = {
+      //   headers: { "Authorization": "Bearer " + accessToken }
+      // }
+      localStorage.setItem("accessToken", accessToken);
+
+      Router.push('/account');
+      setTimeout(()=>{
+        $("#my-account").toggleClass('d-none');
+        $("#login-tab").toggleClass('d-none');
+        $("#create-tab").toggleClass('d-none');
+        $("#logout-tab").toggleClass('d-none');
+      },1000)
+    }
+    catch {
+      $('#wrong-password').toggleClass('d-none');
+    }
+    
+
+  }
+
+  // async accountLoginHandler(account){
+  //   console.log(account);
+  //   const response = await axios.post(post_url, account);
+  //   console.log(response.data)
+  // }
 
 
 
@@ -60,12 +105,12 @@ class Navbar extends React.Component {
               <a className="nav-link py-2 ml-3 mt-3" href="#modalRegisterForm" data-toggle="modal">Create Account</a>
             </li>
             <li className="nav-item d-none" id="logout-tab">
-              <a className="nav-link py-2 ml-3 mt-3" href="/">Log Out</a>
+              <a className="nav-link py-2 ml-3 mt-3" href="/" onClick={this.signOutHandler}>Log Out</a>
             </li>
           </ul>
         </div> {/* collapse navbar-collapse */}
         
-        <Login/>
+        <Login onAccountLogin={this.accountLoginHandler}/>
         <Signup onAccountCreate={this.accountCreateHandler}/>
 
 

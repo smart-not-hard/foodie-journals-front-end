@@ -1,7 +1,7 @@
 import Layout from '../../components/layout/Layout';
 import Filter from '../../components/recipes/Filter';
 import All_recipes from '../../components/recipes/All_recipes'
-// import { useRouter } from 'next/router'
+import Router from 'next/router';
 
 const Search = (props) => {
 
@@ -17,6 +17,8 @@ const Search = (props) => {
       </Layout>
     )
   } else {
+    // ()=>{Router.push('/recipes')}
+
     return (
       <Layout>
           <Filter/>
