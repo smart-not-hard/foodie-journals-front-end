@@ -21,7 +21,9 @@ export default Recipes;
 export async function getServerSideProps (context){
 
   const url = require("../components/url_back");
-  const response = await fetch(url);
+
+
+  const response = await fetch(`${url}api/recipes/`);
   const data = await response.json();
 
   return {

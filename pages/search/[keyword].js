@@ -33,7 +33,7 @@ export async function getServerSideProps (context){
   const keyword = context.query.keyword;
   const url = require("../../components/url_back");
   
-  const response = await fetch(`${url}?search=${keyword}`);
+  const response = await fetch(`${url}api/recipes/?search=${keyword}`);
 
   const data = await response.json();
   return {

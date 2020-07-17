@@ -5,15 +5,18 @@ const All_recipes = (props) => {
   let cards = [];
   for (let i = 0; i<props.data.length; i++){
     cards.push(
-        <div className="col-12 col-md-6 col-lg-4 col-xl-3 mb-3" key={props.data[i].id}>
-          <div className="meal-card card mx-auto">
-            <img className="meal-img card-img-top d-block mx-auto m-2" src={props.data[i].img_src_1 } alt="breakfast"/>
-            <div className="card-body">
-              <h5 className="card-title">{props.data[i].title}</h5>
-              <a href={url+props.data[i].id.toString()} className="btn btn-primary">Learn to cook it</a>
-            </div>
+      <div className="col-12 col-md-6 col-lg-4 col-xl-3 mb-3" key={props.data[i].id}>
+        <div className="meal-card card mx-auto">
+          <a href={url+props.data[i].id.toString()}>
+            <img className="meal-img card-img-top d-block mx-auto" src={props.data[i].img_src_1 } alt="breakfast"/>
+          </a>
+          <div className="card-body">
+            <h5 className="card-title">{props.data[i].title}</h5>
+            <a href={url+props.data[i].id.toString()} className="btn btn-primary">Learn to cook it</a>
           </div>
         </div>
+      </div>
+
     )
   }
 

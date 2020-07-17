@@ -43,7 +43,7 @@ export default class Filter extends React.Component{
       <div className="container p-5">
       <form className="form-inline" onSubmit={this.handleSubmit}>
         <div className="mr-5">
-          <label className="my-1 mr-2 d-inline" for="meal_type">Meal Type</label>
+          <label className="my-1 mr-2 d-inline" htmlFor="meal_type">Meal Type</label>
           <select className="custom-select my-1 mr-sm-2" id="meal_type" name="meal_type" onChange={this.typeHandler}>
             <option selected>Choose...</option>
             <option value="Breakfast">Breakfast</option>
@@ -53,7 +53,7 @@ export default class Filter extends React.Component{
           </select>
         </div>
         <div className="mr-5">
-          <label className="my-1 mr-2 d-inline" for="difficulty">Difficulty</label>
+          <label className="my-1 mr-2 d-inline" htmlFor="difficulty">Difficulty</label>
           <select className="custom-select my-1 mr-sm-2" id="difficulty" name="difficulty" onChange={this.diffHandler}>
             <option selected>Choose...</option>
             <option value="Easy">Easy</option>

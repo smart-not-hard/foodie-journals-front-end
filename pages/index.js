@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Home = (props) => (
     <Layout>
-        <Carousel/>
+        <Carousel data={props}/>
         <Daily_meal data={props}/>
     </Layout>
 
@@ -28,23 +28,26 @@ export async function getServerSideProps (context){
 
   const url = require("../components/url_back");
 
-  const url_breakfast = url + 'breakfast/'
+  const url_breakfast = url + 'api/recipes/breakfast/'
   const response_breakfast = await axios.get(url_breakfast);
   const data_breakfast = response_breakfast.data
 
-  const url_lunch = url + "lunch/";
+  const url_lunch = url + "api/recipes/lunch/";
   const response_lunch = await axios.get(url_lunch);
   const data_lunch = response_lunch.data;
 
-  const url_dinner = url + "dinner/";
+  const url_dinner = url + "api/recipes/dinner/";
   const response_dinner = await axios.get(url_dinner);
   const data_dinner = response_dinner.data;
+
+  let all_meal = data_breakfast.concat(data_lunch).concat(data_dinner);
 
   return {
     props: {
       breakfast: data_breakfast,
       lunch: data_lunch,
       dinner: data_dinner,
+      all: all_meal,
     }
   };
   

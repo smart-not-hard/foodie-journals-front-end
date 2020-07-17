@@ -12,11 +12,6 @@ class Search_form extends React.Component {
   }
   
   handleInput(e){
-    // let input = e.target.name;
-    // if (input === "search"){
-
-    // }
-
     this.setState({
       search: e.target.value,
     })

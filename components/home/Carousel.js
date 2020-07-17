@@ -1,22 +1,42 @@
+import Link from 'next/link';
 
-const Carousel = () => {
-  let url = 'https://foodie-journals.herokuapp.com/api/receipes/';
+
+const Carousel = (props) => {
+  let url = '/details/'
+  let slides = [];
+  let active_tracker = -1;
+  for (let i=0; i< props.data.all.length; i++){
+      if (active_tracker===-1){
+        if (props.data.all[i].img_src_2 !== ''){
+          slides.push(
+            <div className="carousel-item active ">
+              <a href={url+props.data.all[i].id.toString()}>
+                <img className="carousel-img d-block img-thumbnail m-5 mx-auto" src={props.data.all[i].img_src_2} alt=" slide"/>
+              </a>
+            </div>
+          )
+          active_tracker = i;
+        }
+      }
+      else {
+        slides.push(
+          <div className="carousel-item ">
+            <a href={url+props.data.all[i].id.toString()}>
+                <img className="carousel-img d-block img-thumbnail m-5 mx-auto" src={props.data.all[i].img_src_2} alt=" slide"/>
+              </a>
+          </div>
+        )
+      }
+
+  }
+
   
   return (
     <div className="container p-0">
         <div id="carouselControls" className="carousel slide " data-ride="carousel">
             <div className="carousel-inner ">
                 <div className="carousel-container">
-                    <div className="carousel-item active ">
-                        <img className="carousel-img d-block img-thumbnail m-5 mx-auto" src="https://www.carlsbadfoodtours.com/wp-content/uploads/2015/12/09112015_15minute_pastasauce_tomato.v1-1200x800.jpg" alt="First slide"/>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="carousel-img d-block img-thumbnail m-5 mx-auto" src="https://appgrooves.com/cdn/lifegoal/220/e/53014-45519-56524-56048_w1200.png" alt="Second slide"/>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="carousel-img d-block img-thumbnail m-5 mx-auto" src="https://841973.smushcdn.com/1754547/wp-content/uploads/2019/03/delicious-spanish-foods.jpg?lossy=1&strip=1&webp=1" alt="Third slide"/>
-                    </div>
-
+                  {slides}  
                 </div>
             </div>
             <a className="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
