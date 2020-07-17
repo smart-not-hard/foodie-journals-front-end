@@ -6,7 +6,7 @@ export default class PostForm extends React.Component {
       super(props);
       this.state = {
           title: '',
-          author: '',
+          author: 1,
           description: '',
           ingredients: '',
           steps: '',
@@ -44,7 +44,7 @@ export default class PostForm extends React.Component {
       this.props.onRecipeCreate(this.state);
       this.setState({
             title: '',
-            author: '',
+            author: 1,
             description: '', 
             ingredients: '',
             steps: '',
@@ -101,15 +101,15 @@ export default class PostForm extends React.Component {
                         <option value="Dessert">Dessert</option>
                       </select>
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <label htmlFor="author">author: </label>
-                      <select className="custom-select my-1 mr-sm-2" id="author" name="author" value={this.state.author} onChange={this.handleAuthorChange}>
+                      <input className="custom-select my-1 mr-sm-2" id="author" name="author" value= '1' onChange={this.handleAuthorChange} />
                         <option defaultValue>Choose...</option>
                         <option value="1">Admin</option>
                         <option value="3">JB</option>
                         <option value="4">Peng Chen</option>
                       </select>
-                    </div>
+                    </div> */}
                     <div className="form-group">
                       <label htmlFor="img_src_1">Image URL: </label>
                       <textarea value={this.state.img_src_1} name="img_src_1" onChange={this.handleChange} className="form-control" type="text" id="img_src_1" rows="1"></textarea>
