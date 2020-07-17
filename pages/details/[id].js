@@ -42,7 +42,7 @@ export async function getServerSideProps(context){
   const id = context.query.id;
   const url = require("../../components/url_back");
 
-  const response = await fetch(`${url}${id}`);
+  const response = await fetch(`${url}api/recipes/${id}`);
 
   const data = await response.json();
 
