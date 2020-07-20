@@ -7,4 +7,4 @@
 
 
 // my backend
-module.exports = "https://foodie-journals.herokuapp.com/api/recipes/"
+module.exports = "https://foodie-journals.herokuapp.com/"
