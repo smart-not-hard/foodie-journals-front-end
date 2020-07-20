@@ -5,7 +5,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -26,7 +26,7 @@ class Login extends React.Component {
 
     this.props.onAccountLogin(this.state);
     this.setState({
-        username: '',
+        email: '',
         password: '',
       });
     // $('#modalLoginForm').modal('toggle');
@@ -53,7 +53,7 @@ class Login extends React.Component {
                 <p className="h4 mb-4">Sign in</p>
 
                 {/* <!-- Email --> */}
-                <input type="text" name="username" className="form-control mb-4" placeholder="User Name" value={this.state.username} onChange={this.handleChange}/>
+                <input type="email" name="email" className="form-control mb-4" placeholder="Email Address" value={this.state.email} onChange={this.handleChange}/>
 
                 {/* <!-- Password --> */}
                 <input type="password" className="form-control mb-4" placeholder="Password" value={this.state.password} onChange={this.handleChange} name="password"/>

@@ -2,7 +2,7 @@ import RecipeForm from '../components/recipeForm/Form';
 import axios from 'axios';
 import React from 'react';
 import Layout from '../components/layout/Layout'
-// const url = 'https://foodie-journal.herokuapp.com/api/recipes/create';
+import Router from 'next/router';
 const url = require("../components/url_back");
 const post_url = url+'api/recipes/create/'
 
@@ -12,11 +12,23 @@ export default class Account extends React.Component {
       this.recipeCreateHandler = this.recipeCreateHandler.bind(this);
       
   }
-  
+  componentDidMount = () => {
+
+    const user = localStorage.getItem('foodiejournals-user');
+    const access = localStorage.getItem('foodiejournals-access-token');
+
+    if (!user || !access) {
+      Router.push('/');
+    }
+    // } else {
+        
+    // }
+
+  };
   async recipeCreateHandler(recipe) {
     // console.log(recipe);
-    let accessToken= window.localStorage.getItem("accessToken")
-    console.log(accessToken)
+    let accessToken= window.localStorage.getItem("foodiejournals-access-token")
+
     const config = {
       headers: { "Authorization": "Bearer " + accessToken }
     }
