@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import Login from './Login';
 import Signup from './Signup';
 import Search_form from './Search_form';
@@ -6,82 +7,100 @@ import React from 'react';
 import axios from 'axios';
 import Router from 'next/router';
 const url = require("../url_back");
-const post_url = url+'users/register/'
+const register_url = url+'api/users/register/'
 const login_url = url+'api/token/'
 const refresh_url = url+'api/token/refresh/'
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      login: 0,
-      signup:0,
-      signout:0,
-      account:0,
-    }
     this.accountCreateHandler = this.accountCreateHandler.bind(this);
     this.accountLoginHandler = this.accountLoginHandler.bind(this);
     this.signOutHandler = this.signOutHandler.bind(this);
+    this.accountToken = this.accountToken.bind(this);
   }
+  
+  componentDidMount = () => {
 
+    const user = localStorage.getItem('foodiejournals-user');
+    const access = localStorage.getItem('foodiejournals-access-token');
+
+    if (user && access) {
+      $('#login-tab').addClass('d-none');
+      $("#create-tab").addClass('d-none');
+      $("#logout-tab").removeClass('d-none');
+      $("#my-account").removeClass('d-none');
+    } else {
+      $('#login-tab').removeClass('d-none');
+      $("#create-tab").removeClass('d-none');
+      $("#my-account").addClass('d-none');
+      $("#logout-tab").addClass('d-none');
+    }
+
+  };
   signOutHandler(e){
     window.localStorage.clear();
   }
 
+
+  async accountToken(response){
+    let accessToken = response.data.access;
+    // console.log(accessToken)
+
+    const refreshRes = await axios.post(refresh_url, {refresh:response.data.refresh});
+    // console.log('refreshed token', refreshRes.data)
+    accessToken = refreshRes.data.access;
+
+    localStorage.setItem("foodiejournals-access-token", accessToken);
+
+    Router.push('/account');
+  }
+
   async accountCreateHandler(account){
-    // console.log(account);
-    const response = await axios.post(post_url, account);
-    // console.log(response.data)
+    try {
+      const register_res = await axios.post(register_url, account);
+      const log_in = await this.accountLoginHandler(account);
+      $('#modalRegisterForm').modal('hide');
+    }
+    catch{
+      
+      $('#signup-error').toggleClass('d-none');
+    }
+
   }
 
   async accountLoginHandler(account){
     try {
       const response = await axios.post(login_url, account);
-      $('#modalLoginForm').modal('toggle');
-      
-      let accessToken = response.data.access;
-
-      const refreshRes = await axios.post(refresh_url, {refresh:response.data.refresh});
-      console.log('refreshed token', refreshRes.data)
-      accessToken = refreshRes.data.access;
-      
-      // const config = {
-      //   headers: { "Authorization": "Bearer " + accessToken }
-      // }
-      localStorage.setItem("accessToken", accessToken);
-
-      Router.push('/account');
-      setTimeout(()=>{
-        $("#my-account").toggleClass('d-none');
-        $("#login-tab").toggleClass('d-none');
-        $("#create-tab").toggleClass('d-none');
-        $("#logout-tab").toggleClass('d-none');
-      },1000)
+      $('#modalLoginForm').modal('hide');
+      this.accountToken(response);
+      localStorage.setItem("foodiejournals-user", account.email);
     }
     catch {
       $('#wrong-password').toggleClass('d-none');
     }
-    
-
   }
 
-  // async accountLoginHandler(account){
-  //   console.log(account);
-  //   const response = await axios.post(post_url, account);
-  //   console.log(response.data)
-  // }
+
+  //Nav tab render based on login statuc
 
 
 
   render(){
+
     return(
       <nav className="container navbar navbar-expand-lg navbar-light mt-3 mb-3">
-        <a href="/" className="navbar-brand ml-3 d-none d-sm-inline-block">
-          <img className="nav-img rounded-circle" src="assets/logo.png" alt="Logo" style={{width:"80px"}}/>
-        </a>
-        <a className="navbar-brand d-inline-block mx-auto" href="/">
-          <h1>Foodie Journals</h1>
-        </a>
+        <Link href="/">
+          <a className="navbar-brand ml-3 d-none d-sm-inline-block">
+            <img className="nav-img rounded-circle" src="assets/logo.png" alt="Logo" style={{width:"80px"}}/>
+          </a>
+        </Link>
+        <Link href="/">
+          <a className="navbar-brand d-inline-block mx-auto">
+            <h1>Foodie Journals</h1>
+          </a>
+
+        </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
           <span className="navbar-toggler-icon"></span>
         </button>

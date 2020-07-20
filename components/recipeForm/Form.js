@@ -40,7 +40,7 @@ export default class PostForm extends React.Component {
     handleSubmit(event) {
     //   alert('Recipe Submited');
       event.preventDefault();
-      console.log('Submit', this.state);
+      // console.log('Submit', this.state);
       this.props.onRecipeCreate(this.state);
       this.setState({
             title: '',

@@ -6,7 +6,7 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        username: '',
+        // username: '',
         email: '',
         password: '',
       };
@@ -29,18 +29,18 @@ class Signup extends React.Component {
 
     this.props.onAccountCreate(this.state);
     this.setState({
-        username: '',
+        // username: '',
         email: '',
         password: '',
       });
-    $('#modalRegisterForm').modal('toggle');
-    Router.push('/account');
-    setTimeout(()=>{
-      $("#my-account").toggleClass('d-none');
-      $("#login-tab").toggleClass('d-none');
-      $("#create-tab").toggleClass('d-none');
-      $("#logout-tab").toggleClass('d-none');
-    }, 1000)
+    // $('#modalRegisterForm').modal('toggle');
+    // Router.push('/account');
+    // setTimeout(()=>{
+    //   $("#my-account").toggleClass('d-none');
+    //   $("#login-tab").toggleClass('d-none');
+    //   $("#create-tab").toggleClass('d-none');
+    //   $("#logout-tab").toggleClass('d-none');
+    // }, 1000)
     
   }
 
@@ -62,14 +62,15 @@ class Signup extends React.Component {
 
                 <p className="h4 mb-4 mt-0">Sign up</p>
 
-                <input value={this.state.username} type="text" id="username" name="username" className="form-control mb-4" placeholder="User Name " onChange={this.handleChange}/>
+                <input value={this.state.email} type="email" id="email" name="email" className="form-control mb-4" placeholder="Email Address " onChange={this.handleChange}/>
 
-                <input value={this.state.email} type="email" id="email" name="email" className="form-control mb-4" placeholder="E-mail" onChange={this.handleChange}/>
+                {/* <input value={this.state.email} type="email" id="email" name="email" className="form-control mb-4" placeholder="E-mail" onChange={this.handleChange}/> */}
 
                 <input value={this.state.password} type="password" id="password" name="password" className="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" onChange={this.handleChange}/>
                 <small id="defaultRegisterFormPasswordHelpBlock" className="form-text text-muted mb-4">
                     At least 8 characters and 1 digit
                 </small>
+                <p className="text-danger d-none" id='signup-error'>Your user name or email is already in use!</p>
 
                 {/* <!-- Sign up button --> */}
                 <button className="btn btn-info my-4 btn-block" type="submit"  >Create Account</button>
