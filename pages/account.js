@@ -1,4 +1,4 @@
-import RecipeForm from '../components/recipeForm/Form';
+import RecipeForm from '../components/account/Form';
 import axios from 'axios';
 import React from 'react';
 import Layout from '../components/layout/Layout'
@@ -27,13 +27,18 @@ export default class Account extends React.Component {
   };
   async recipeCreateHandler(recipe) {
     // console.log(recipe);
-    let accessToken= window.localStorage.getItem("foodiejournals-access-token")
+    let accessToken= localStorage.getItem("foodiejournals-access-token")
 
     const config = {
       headers: { "Authorization": "Bearer " + accessToken }
     }
-    const response = await axios.post(post_url, recipe, config);
-    // console.log(response.data)
+    try {
+      const response = await axios.post(post_url, recipe, config);
+    }
+    catch {
+      let refreshToken= localStorage.getItem("foodiejournals-refresh-token")
+      
+    }
   }
 
   render() {

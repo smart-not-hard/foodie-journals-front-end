@@ -1,5 +1,13 @@
 # Team Smart not Hard : PGC
 
+**Attention:**
+
+As of July 20th 2020, the Code Fellows 401 python course is ended. Thus the end of group project in this repo.
+
+As owner the domain [foodiejournals.com](https://foodiejournals.com), I ([Peng Chen](https://github.com/PengChen11)) decided to keep working on this project at my personal time.
+
+For details, please visit [foodiejournals.com project at my Github.](https://github.com/PengChen11/foodiejournals.com)
+
 ## Members
 
 - [Peng Chen](https://github.com/PengChen11)
@@ -8,7 +16,7 @@
 
 ## [Deployed Backend - Heroku](https://foodie-journal.herokuapp.com/)
 
-## [Deployed Front-end - Vercel](https://foodie-journals-front-end.vercel.app)
+## [Deployed Front-end - Vercel](https://foodiejournals.com)
 
 ## [GitHub Repo](https://github.com/smart-not-hard/foodie-journal)
 
