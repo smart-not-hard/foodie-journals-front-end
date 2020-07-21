@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import React from 'react';
 
-export default class PostForm extends React.Component {
+export default class RecipeForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {

@@ -1,6 +1,7 @@
 import Layout from '../../components/layout/Layout';
 import React from 'react';
 import axios from 'axios';
+import Router from 'next/router';
 
 
 
@@ -36,7 +37,8 @@ class Recipe_info extends React.Component {
       headers: { "Authorization": "Bearer " + accessToken }
     }
     try {
-      await axios.delete(this.delete_url, {params:this.props.data}, config);
+      await axios.delete(this.delete_url, config);
+      Router.push('/account')
     }
     catch {
       alert("you don't own this post")
