@@ -30,8 +30,6 @@ class Login extends React.Component {
         password: '',
       });
     // $('#modalLoginForm').modal('toggle');
-    
-    
   }
 
   render(){
